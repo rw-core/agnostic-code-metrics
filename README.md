@@ -4,6 +4,13 @@
 
 <h1 align="center">agnostic-code-metrics</h1>
 
+<p align="center">
+  <a href="https://github.com/rw-core/agnostic-code-metrics/actions/workflows/ci.yml"><img src="https://github.com/rw-core/agnostic-code-metrics/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/rw-core/agnostic-code-metrics/releases/latest"><img src="https://img.shields.io/github/v/release/rw-core/agnostic-code-metrics" alt="Latest release"></a>
+  <a href="https://github.com/marketplace/actions/agnostic-code-metrics"><img src="https://img.shields.io/badge/marketplace-agnostic--code--metrics-blue?logo=github" alt="GitHub Marketplace"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/rw-core/agnostic-code-metrics" alt="License"></a>
+</p>
+
 <p align="center"><em>Six legs, six metrics: a language-agnostic code-quality check for every pull request.</em></p>
 
 A GitHub Action that computes **language-agnostic code-quality metrics** for the
