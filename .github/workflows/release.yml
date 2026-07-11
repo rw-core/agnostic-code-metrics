@@ -60,8 +60,9 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          TAG="${GITHUB_REF_NAME}"                 # e.g. v1.2.3
-          MAJOR="v${TAG#v}"; MAJOR="v${MAJOR%%.*}"  # e.g. v1
+          TAG="${GITHUB_REF_NAME}"      # e.g. v1.2.3
+          MAJOR="v${TAG#v}"             # normalise to vX.Y.Z → v1.2.3
+          MAJOR="${MAJOR%%.*}"          # strip .Y.Z          → v1
           ls -la dist
 
           # Exact-version release (immutable, what users should pin to).
