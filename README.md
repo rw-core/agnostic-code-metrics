@@ -4,7 +4,7 @@
 
 <h1 align="center">agnostic-code-metrics</h1>
 
-<p align="center"><em>Six legs, six metrics — a language-agnostic code-quality check for every pull request.</em></p>
+<p align="center"><em>Six legs, six metrics: a language-agnostic code-quality check for every pull request.</em></p>
 
 A GitHub Action that computes **language-agnostic code-quality metrics** for the
 files changed in a pull request and reports them as a sticky PR comment and a job
