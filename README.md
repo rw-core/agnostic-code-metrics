@@ -103,8 +103,8 @@ source language are analysed (unparseable/binary files are skipped silently).
 This is a **composite action optimized with pre-compiled native binaries**, so
 there is no Dart SDK setup or on-the-fly compilation on the consumer's runner:
 
-1. On each release, CI sets up Flutter (which bundles Dart) and AOT-compiles
-   standalone binaries via `dart compile exe` for **Linux x64, macOS x64,
+1. On each release, CI sets up the Dart SDK and AOT-compiles standalone
+   binaries via `dart compile exe` for **Linux x64, Linux arm64, macOS x64,
    macOS arm64, and Windows x64**, and attaches them (with `.sha256`
    checksums) to the GitHub Release.
 2. At runtime the action detects `RUNNER_OS`/`RUNNER_ARCH`, downloads the
@@ -112,26 +112,18 @@ there is no Dart SDK setup or on-the-fly compilation on the consumer's runner:
    (~instant startup, no `setup-dart`, no `pub get`, no compile).
 3. If the binary can't be fetched or verified (an unpublished arch, a network or
    checksum failure, or a commit-SHA pin / vendored `uses: ./` copy), it
-   **automatically falls back** to compiling from source via Flutter so the
-   action always works.
+   **automatically falls back** to compiling from source with the Dart SDK so
+   the action always works.
 
-A quality-gate failure (`fail-on-violation`) is a real exit code and it will fails 
+A quality-gate failure (`fail-on-violation`) is a real exit code and it will fail
 the check as intended.
-
-> **Platform note:** Linux **arm64** runners are not supported. `rw_git` pins
-> the Flutter SDK, and Flutter's stable channel ships no linux-arm64 build, so
-> neither the pre-compiled binary nor the source fallback can run there. 
-> Use a linux-x64 runner instead. 
-> Note: macOS arm64 (Apple Silicon) is fully supported.
 
 ## Development
 
-`rw_git` pins the Flutter SDK in its `environment` constraint (its code is pure
-Dart, but pub requires Flutter to resolve), so use the **Flutter** toolchain
-(which bundles Dart) rather than a standalone Dart SDK:
+`rw_git` is a pure-Dart package, so a standalone Dart SDK is all you need:
 
 ```bash
-flutter pub get
+dart pub get
 dart analyze
 dart test
 dart compile exe bin/main.dart -o /tmp/acm   # what the release build produces

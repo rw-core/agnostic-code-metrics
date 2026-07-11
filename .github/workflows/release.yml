@@ -15,23 +15,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Linux-arm64 is intentionally omitted: Flutter's stable channel (which
-        # rw_git forces us onto) ships no linux-arm64 SDK, so neither the build
-        # here nor the source-fallback can run there. See README.
         include:
-          - { runner: ubuntu-latest,  os: linux,   arch: x64,   ext: '' }
-          - { runner: macos-26-intel, os: macos,   arch: x64,   ext: '' }
-          - { runner: macos-latest,   os: macos,   arch: arm64, ext: '' }
-          - { runner: windows-latest, os: windows, arch: x64,   ext: '.exe' }
+          - { runner: ubuntu-latest,     os: linux,   arch: x64,   ext: '' }
+          - { runner: ubuntu-24.04-arm,  os: linux,   arch: arm64, ext: '' }
+          - { runner: macos-26-intel,    os: macos,   arch: x64,   ext: '' }
+          - { runner: macos-latest,      os: macos,   arch: arm64, ext: '' }
+          - { runner: windows-latest,    os: windows, arch: x64,   ext: '.exe' }
     steps:
       - uses: actions/checkout@v4
-      # rw_git pins `flutter` in its environment, so we set up Flutter (which
-      # bundles the Dart SDK used by `dart compile exe`).
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: stable
+      - uses: dart-lang/setup-dart@v1
       - shell: bash
-        run: flutter pub get
+        run: dart pub get
       - name: Compile native binary + checksum
         shell: bash
         run: |

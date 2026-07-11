@@ -9,7 +9,7 @@ environment:
   sdk: ^3.3.0
 
 dependencies:
-  rw_git: ^3.3.0
+  rw_git: ^3.3.1
   http: ^1.2.0
 
 dev_dependencies:

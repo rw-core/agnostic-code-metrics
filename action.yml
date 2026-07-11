@@ -100,18 +100,16 @@ runs:
 
     # Fallback: only runs if the binary could not be fetched/verified
     # (unpublished arch, network/checksum failure, or a pinned commit SHA).
-    # rw_git pins `flutter` in its environment, so resolving from source needs
-    # the Flutter SDK (which bundles Dart), not the standalone Dart SDK.
-    - name: Set up Flutter (fallback)
+    # rw_git is pure Dart, so the standalone Dart SDK is all that's needed to
+    # resolve and run from source.
+    - name: Set up Dart (fallback)
       if: steps.metrics.outputs.mode == 'fallback'
-      uses: subosito/flutter-action@v2
-      with:
-        channel: stable
+      uses: dart-lang/setup-dart@v1
     - name: Run metrics (from source, fallback)
       if: steps.metrics.outputs.mode == 'fallback'
       shell: bash
       working-directory: ${{ github.action_path }}
-      run: flutter pub get && dart run bin/main.dart
+      run: dart pub get && dart run bin/main.dart
       env:
         INPUT_GITHUB_TOKEN: ${{ inputs.github-token }}
         INPUT_INCLUDE: ${{ inputs.include }}
