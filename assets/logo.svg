@@ -1,53 +1,62 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240" role="img" aria-label="agnostic-code-metrics: an octo-cat whose six legs are labelled Cyclomatic, Cognitive, NPath, ABC, Est. Bugs and Maintainability">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240" role="img" aria-label="agnostic-code-metrics: a honeycomb whose six cells are the metrics Cyclomatic, Cognitive, NPath, ABC, Est. Bugs and Maintainability around a central composite score">
   <defs>
     <linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B222D"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
     <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#AEB9CD"/><stop offset="1" stop-color="#7E8DA8"/></linearGradient>
     <linearGradient id="a" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#F5B031"/><stop offset="1" stop-color="#FFC94D"/></linearGradient>
+    <linearGradient id="c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5A6884"/><stop offset="1" stop-color="#3C475C"/></linearGradient>
   </defs>
   <rect x="8" y="8" width="384" height="224" rx="28" fill="url(#t)"/>
   <rect x="8.75" y="8.75" width="382.5" height="222.5" rx="27.25" fill="none" stroke="#2B3644" stroke-width="1.5"/>
 
-  <!-- five slate legs + one amber (Maintainability = the gated metric) -->
-  <g fill="none" stroke="#6E7C97" stroke-width="7" stroke-linecap="round">
-    <path d="M182 124 C 168 104, 156 86, 140 72"/>
-    <path d="M170 128 C 160 124, 150 118, 140 112"/>
-    <path d="M182 132 C 168 146, 154 150, 140 152"/>
-    <path d="M202 124 C 216 104, 228 86, 244 72"/>
-    <path d="M214 128 C 224 124, 234 118, 244 112"/>
-  </g>
-  <path d="M202 132 C 216 146, 230 150, 244 152" fill="none" stroke="url(#a)" stroke-width="7" stroke-linecap="round"/>
-
-  <!-- leg-tip metric nodes -->
-  <g stroke="#0D1117" stroke-width="1.5" fill="#8394AE">
-    <circle cx="140" cy="72" r="6"/>
-    <circle cx="140" cy="112" r="6"/>
-    <circle cx="140" cy="152" r="6"/>
-    <circle cx="244" cy="72" r="6"/>
-    <circle cx="244" cy="112" r="6"/>
-    <circle cx="244" cy="152" r="6.4" fill="url(#a)"/>
+  <!-- leader lines from each metric cell to its label -->
+  <g stroke="#3A4657" stroke-width="1.5" stroke-linecap="round">
+    <line x1="101.95" y1="87" x2="82" y2="87"/>
+    <line x1="82.85" y1="120" x2="82" y2="120"/>
+    <line x1="101.95" y1="153" x2="82" y2="153"/>
+    <line x1="178.05" y1="87" x2="248" y2="87"/>
+    <line x1="197.15" y1="120" x2="248" y2="120"/>
+    <line x1="178.05" y1="153" x2="248" y2="153"/>
   </g>
 
-  <!-- metric labels, one per leg -->
+  <!-- honeycomb: one composite centre + six metric cells (walls = dark) -->
+  <g stroke="#0D1117" stroke-width="2.5" stroke-linejoin="round">
+    <!-- Cyclomatic (upper-left) -->
+    <path d="M121 65 L101.95 76 L101.95 98 L121 109 L140.05 98 L140.05 76 Z" fill="url(#c)"/>
+    <!-- Cognitive (left) -->
+    <path d="M101.9 98 L82.85 109 L82.85 131 L101.9 142 L120.95 131 L120.95 109 Z" fill="url(#c)"/>
+    <!-- NPath (lower-left) -->
+    <path d="M121 131 L101.95 142 L101.95 164 L121 175 L140.05 164 L140.05 142 Z" fill="url(#c)"/>
+    <!-- ABC (upper-right) -->
+    <path d="M159 65 L139.95 76 L139.95 98 L159 109 L178.05 98 L178.05 76 Z" fill="url(#c)"/>
+    <!-- Est. Bugs (right) -->
+    <path d="M178.1 98 L159.05 109 L159.05 131 L178.1 142 L197.15 131 L197.15 109 Z" fill="url(#c)"/>
+    <!-- Maintainability (lower-right) = the amber gated metric -->
+    <path d="M159 131 L139.95 142 L139.95 164 L159 175 L178.05 164 L178.05 142 Z" fill="url(#a)"/>
+    <!-- composite score (centre) -->
+    <path d="M140 98 L120.95 109 L120.95 131 L140 142 L159.05 131 L159.05 109 Z" fill="url(#b)"/>
+  </g>
+
+  <!-- cell nodes -->
+  <g stroke="none">
+    <circle cx="121"    cy="87"  r="2.6" fill="#AEB9CD"/>
+    <circle cx="101.9"  cy="120" r="2.6" fill="#AEB9CD"/>
+    <circle cx="121"    cy="153" r="2.6" fill="#AEB9CD"/>
+    <circle cx="159"    cy="87"  r="2.6" fill="#AEB9CD"/>
+    <circle cx="178.1"  cy="120" r="2.6" fill="#AEB9CD"/>
+    <circle cx="159"    cy="153" r="2.6" fill="#0D1117"/>
+    <circle cx="140"    cy="120" r="3.4" fill="url(#a)"/>
+  </g>
+
+  <!-- metric labels, one per cell -->
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" dominant-baseline="central">
-    <text x="128" y="72"  text-anchor="end" fill="#C9D3E0">Cyclomatic</text>
-    <text x="128" y="112" text-anchor="end" fill="#C9D3E0">Cognitive</text>
-    <text x="128" y="152" text-anchor="end" fill="#C9D3E0">NPath</text>
-    <text x="256" y="72"  text-anchor="start" fill="#C9D3E0">ABC</text>
-    <text x="256" y="112" text-anchor="start" fill="#C9D3E0">Est. Bugs</text>
-    <text x="256" y="152" text-anchor="start" fill="#F5B031">Maintainability</text>
+    <text x="80"  y="87"  text-anchor="end"   fill="#C9D3E0">Cyclomatic</text>
+    <text x="80"  y="120" text-anchor="end"   fill="#C9D3E0">Cognitive</text>
+    <text x="80"  y="153" text-anchor="end"   fill="#C9D3E0">NPath</text>
+    <text x="250" y="87"  text-anchor="start" fill="#C9D3E0">ABC</text>
+    <text x="250" y="120" text-anchor="start" fill="#C9D3E0">Est. Bugs</text>
+    <text x="250" y="153" text-anchor="start" fill="#F5B031">Maintainability</text>
   </g>
 
-  <!-- head -->
-  <path d="M173 93 L180 74 L191 91 Z" fill="url(#b)"/>
-  <path d="M211 93 L204 74 L193 91 Z" fill="url(#b)"/>
-  <path d="M178 89 L181 79 L187 89 Z" fill="url(#a)"/>
-  <path d="M206 89 L203 79 L197 89 Z" fill="url(#a)"/>
-  <ellipse cx="192" cy="110" rx="28" ry="25" fill="url(#b)"/>
-  <ellipse cx="183.5" cy="109" rx="6.4" ry="7" fill="#0D1117"/>
-  <ellipse cx="200.5" cy="109" rx="6.4" ry="7" fill="#0D1117"/>
-  <circle cx="185.6" cy="106.4" r="1.7" fill="#ffffff"/>
-  <circle cx="202.6" cy="106.4" r="1.7" fill="#ffffff"/>
-  <path d="M188 118 L196 118 L192 122.5 Z" fill="url(#a)"/>
-  <path d="M192 122.5 Q 188.5 126 185 124" fill="none" stroke="#0D1117" stroke-width="1.8" stroke-linecap="round"/>
-  <path d="M192 122.5 Q 195.5 126 199 124" fill="none" stroke="#0D1117" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- wordmark -->
+  <text x="200" y="216" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#7E8DA8" letter-spacing="0.5">agnostic-code-metrics</text>
 </svg>

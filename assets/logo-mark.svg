@@ -1,39 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="agnostic-code-metrics compact mark: a six-legged octo-cat">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="agnostic-code-metrics compact mark: a six-cell honeycomb around a composite score">
   <defs>
     <linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B222D"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
     <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#AEB9CD"/><stop offset="1" stop-color="#7E8DA8"/></linearGradient>
     <linearGradient id="a" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#F5B031"/><stop offset="1" stop-color="#FFC94D"/></linearGradient>
+    <linearGradient id="c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5A6884"/><stop offset="1" stop-color="#3C475C"/></linearGradient>
   </defs>
   <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#t)"/>
   <rect x="8.75" y="8.75" width="110.5" height="110.5" rx="27.25" fill="none" stroke="#2B3644" stroke-width="1.5"/>
-  <g fill="none" stroke="#6E7C97" stroke-width="7" stroke-linecap="round">
-    <path d="M58 68 C 52 84, 46 92, 42 106"/>
-    <path d="M64 69 C 62 86, 60 98, 59 110"/>
-    <path d="M70 68 C 74 84, 78 96, 80 108"/>
-    <path d="M76 66 C 82 82, 90 90, 95 102"/>
-    <path d="M80 63 C 90 76, 98 82, 104 92"/>
+
+  <g stroke="#0D1117" stroke-width="2.5" stroke-linejoin="round">
+    <path d="M81.32 14 L64 24 L64 44 L81.32 54 L98.64 44 L98.64 24 Z" fill="url(#c)"/>
+    <path d="M46.68 14 L29.36 24 L29.36 44 L46.68 54 L64 44 L64 24 Z" fill="url(#c)"/>
+    <path d="M29.36 44 L12.04 54 L12.04 74 L29.36 84 L46.68 74 L46.68 54 Z" fill="url(#c)"/>
+    <path d="M98.64 44 L81.32 54 L81.32 74 L98.64 84 L115.96 74 L115.96 54 Z" fill="url(#c)"/>
+    <path d="M46.68 74 L29.36 84 L29.36 104 L46.68 114 L64 104 L64 84 Z" fill="url(#c)"/>
+    <!-- amber gated cell -->
+    <path d="M81.32 74 L64 84 L64 104 L81.32 114 L98.64 104 L98.64 84 Z" fill="url(#a)"/>
+    <!-- composite centre -->
+    <path d="M64 44 L46.68 54 L46.68 74 L64 84 L81.32 74 L81.32 54 Z" fill="url(#b)"/>
   </g>
-  <path d="M56 63 C 46 60, 36 54, 31 44 C 28.5 39, 30 35, 34 34" fill="none" stroke="url(#a)" stroke-width="7" stroke-linecap="round"/>
-  <g stroke="#0D1117" stroke-width="1.5" fill="#8394AE">
-    <circle cx="42" cy="106" r="5"/>
-    <circle cx="59" cy="110" r="5"/>
-    <circle cx="80" cy="108" r="5"/>
-    <circle cx="95" cy="102" r="5"/>
-    <circle cx="104" cy="92" r="5"/>
-    <circle cx="34" cy="34" r="5.4" fill="url(#a)"/>
-  </g>
-  <g transform="rotate(-7 64 50)">
-    <path d="M45 32 L52 13 L63 30 Z" fill="url(#b)"/>
-    <path d="M83 32 L76 13 L65 30 Z" fill="url(#b)"/>
-    <path d="M50 28 L53 18 L59 28 Z" fill="url(#a)"/>
-    <path d="M78 28 L75 18 L69 28 Z" fill="url(#a)"/>
-    <ellipse cx="64" cy="49" rx="27" ry="24" fill="url(#b)"/>
-    <ellipse cx="55.5" cy="48" rx="6.4" ry="7" fill="#0D1117"/>
-    <ellipse cx="72.5" cy="48" rx="6.4" ry="7" fill="#0D1117"/>
-    <circle cx="53.4" cy="45.4" r="1.7" fill="#ffffff"/>
-    <circle cx="70.4" cy="45.4" r="1.7" fill="#ffffff"/>
-    <path d="M60 57 L68 57 L64 61.5 Z" fill="url(#a)"/>
-    <path d="M64 61.5 Q 60.5 65 57 63" fill="none" stroke="#0D1117" stroke-width="1.8" stroke-linecap="round"/>
-    <path d="M64 61.5 Q 67.5 65 71 63" fill="none" stroke="#0D1117" stroke-width="1.8" stroke-linecap="round"/>
-  </g>
+  <circle cx="64" cy="64" r="3.4" fill="url(#a)"/>
 </svg>
