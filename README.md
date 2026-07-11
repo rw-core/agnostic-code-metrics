@@ -2,7 +2,7 @@
 
 A GitHub Action that computes **language-agnostic code-quality metrics** for the
 files changed in a pull request and reports them as a sticky PR comment and a job
-summary — with **base-vs-head deltas** and an optional **quality gate**.
+summary, with **base-vs-head deltas** and an optional **quality gate**.
 
 Metrics are produced by the [`rw_git`](https://pub.dev/packages/rw_git) lexical
 engine (a fast, allocation-light FSM lexer), so the same six metrics are computed
@@ -78,7 +78,7 @@ Fail the check when a changed file crosses a threshold:
 | `working-directory` | `.` | Repository root to analyse, relative to the checkout. |
 
 An unset threshold is never enforced. Only files whose extension is a recognised
-source language are analysed; unparseable/binary files are skipped silently.
+source language are analysed (unparseable/binary files are skipped silently).
 
 ## Outputs
 
@@ -105,30 +105,30 @@ there is no Dart SDK setup or on-the-fly compilation on the consumer's runner:
 
 1. On each release, CI sets up Flutter (which bundles Dart) and AOT-compiles
    standalone binaries via `dart compile exe` for **Linux x64, macOS x64,
-   macOS arm64, and Windows x64**, and attaches them — with `.sha256`
-   checksums — to the GitHub Release.
+   macOS arm64, and Windows x64**, and attaches them (with `.sha256`
+   checksums) to the GitHub Release.
 2. At runtime the action detects `RUNNER_OS`/`RUNNER_ARCH`, downloads the
    matching binary from the release, **verifies its checksum**, and executes it
-   (~instant startup — no `setup-dart`, no `pub get`, no compile).
+   (~instant startup, no `setup-dart`, no `pub get`, no compile).
 3. If the binary can't be fetched or verified (an unpublished arch, a network or
    checksum failure, or a commit-SHA pin / vendored `uses: ./` copy), it
    **automatically falls back** to compiling from source via Flutter so the
    action always works.
 
-A quality-gate failure (`fail-on-violation`) is a real exit code, not a fallback
-trigger — it fails the check as intended.
+A quality-gate failure (`fail-on-violation`) is a real exit code and it will fails 
+the check as intended.
 
 > **Platform note:** Linux **arm64** runners are not supported. `rw_git` pins
 > the Flutter SDK, and Flutter's stable channel ships no linux-arm64 build, so
-> neither the pre-compiled binary nor the source fallback can run there — the
-> action fails fast with guidance. Use a linux-x64 runner. macOS arm64 (Apple
-> Silicon) is fully supported.
+> neither the pre-compiled binary nor the source fallback can run there. 
+> Use a linux-x64 runner instead. 
+> Note: macOS arm64 (Apple Silicon) is fully supported.
 
 ## Development
 
 `rw_git` pins the Flutter SDK in its `environment` constraint (its code is pure
-Dart, but pub requires Flutter to resolve), so use the **Flutter** toolchain —
-which bundles Dart — rather than a standalone Dart SDK:
+Dart, but pub requires Flutter to resolve), so use the **Flutter** toolchain
+(which bundles Dart) rather than a standalone Dart SDK:
 
 ```bash
 flutter pub get

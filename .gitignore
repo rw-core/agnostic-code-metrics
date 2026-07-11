@@ -32,3 +32,4 @@ doc/api/
 .idea/misc.xml
 .idea/caches/deviceStreaming.xml
 .idea/agnostic-code-metrics.iml
+.idea/markdown.xml
