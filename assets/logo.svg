@@ -10,51 +10,51 @@
 
   <!-- leader lines from each metric cell to its label -->
   <g stroke="#3A4657" stroke-width="1.5" stroke-linecap="round">
-    <line x1="101.95" y1="87" x2="82" y2="87"/>
-    <line x1="82.85" y1="120" x2="82" y2="120"/>
-    <line x1="101.95" y1="153" x2="82" y2="153"/>
-    <line x1="178.05" y1="87" x2="248" y2="87"/>
-    <line x1="197.15" y1="120" x2="248" y2="120"/>
-    <line x1="178.05" y1="153" x2="248" y2="153"/>
+    <line x1="119.95" y1="87"  x2="94"  y2="87"/>
+    <line x1="100.85" y1="120" x2="94"  y2="120"/>
+    <line x1="119.95" y1="153" x2="94"  y2="153"/>
+    <line x1="196.05" y1="87"  x2="260" y2="87"/>
+    <line x1="215.15" y1="120" x2="260" y2="120"/>
+    <line x1="196.05" y1="153" x2="260" y2="153"/>
   </g>
 
   <!-- honeycomb: one composite centre + six metric cells (walls = dark) -->
   <g stroke="#0D1117" stroke-width="2.5" stroke-linejoin="round">
     <!-- Cyclomatic (upper-left) -->
-    <path d="M121 65 L101.95 76 L101.95 98 L121 109 L140.05 98 L140.05 76 Z" fill="url(#c)"/>
+    <path d="M139 65 L119.95 76 L119.95 98 L139 109 L158.05 98 L158.05 76 Z" fill="url(#c)"/>
     <!-- Cognitive (left) -->
-    <path d="M101.9 98 L82.85 109 L82.85 131 L101.9 142 L120.95 131 L120.95 109 Z" fill="url(#c)"/>
+    <path d="M119.9 98 L100.85 109 L100.85 131 L119.9 142 L138.95 131 L138.95 109 Z" fill="url(#c)"/>
     <!-- NPath (lower-left) -->
-    <path d="M121 131 L101.95 142 L101.95 164 L121 175 L140.05 164 L140.05 142 Z" fill="url(#c)"/>
+    <path d="M139 131 L119.95 142 L119.95 164 L139 175 L158.05 164 L158.05 142 Z" fill="url(#c)"/>
     <!-- ABC (upper-right) -->
-    <path d="M159 65 L139.95 76 L139.95 98 L159 109 L178.05 98 L178.05 76 Z" fill="url(#c)"/>
+    <path d="M177 65 L157.95 76 L157.95 98 L177 109 L196.05 98 L196.05 76 Z" fill="url(#c)"/>
     <!-- Est. Bugs (right) -->
-    <path d="M178.1 98 L159.05 109 L159.05 131 L178.1 142 L197.15 131 L197.15 109 Z" fill="url(#c)"/>
+    <path d="M196.1 98 L177.05 109 L177.05 131 L196.1 142 L215.15 131 L215.15 109 Z" fill="url(#c)"/>
     <!-- Maintainability (lower-right) = the amber gated metric -->
-    <path d="M159 131 L139.95 142 L139.95 164 L159 175 L178.05 164 L178.05 142 Z" fill="url(#a)"/>
+    <path d="M177 131 L157.95 142 L157.95 164 L177 175 L196.05 164 L196.05 142 Z" fill="url(#a)"/>
     <!-- composite score (centre) -->
-    <path d="M140 98 L120.95 109 L120.95 131 L140 142 L159.05 131 L159.05 109 Z" fill="url(#b)"/>
+    <path d="M158 98 L138.95 109 L138.95 131 L158 142 L177.05 131 L177.05 109 Z" fill="url(#b)"/>
   </g>
 
   <!-- cell nodes -->
   <g stroke="none">
-    <circle cx="121"    cy="87"  r="2.6" fill="#AEB9CD"/>
-    <circle cx="101.9"  cy="120" r="2.6" fill="#AEB9CD"/>
-    <circle cx="121"    cy="153" r="2.6" fill="#AEB9CD"/>
-    <circle cx="159"    cy="87"  r="2.6" fill="#AEB9CD"/>
-    <circle cx="178.1"  cy="120" r="2.6" fill="#AEB9CD"/>
-    <circle cx="159"    cy="153" r="2.6" fill="#0D1117"/>
-    <circle cx="140"    cy="120" r="3.4" fill="url(#a)"/>
+    <circle cx="139"    cy="87"  r="2.6" fill="#AEB9CD"/>
+    <circle cx="119.9"  cy="120" r="2.6" fill="#AEB9CD"/>
+    <circle cx="139"    cy="153" r="2.6" fill="#AEB9CD"/>
+    <circle cx="177"    cy="87"  r="2.6" fill="#AEB9CD"/>
+    <circle cx="196.1"  cy="120" r="2.6" fill="#AEB9CD"/>
+    <circle cx="177"    cy="153" r="2.6" fill="#0D1117"/>
+    <circle cx="158"    cy="120" r="3.4" fill="url(#a)"/>
   </g>
 
   <!-- metric labels, one per cell -->
-  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12" font-weight="600" dominant-baseline="central">
-    <text x="80"  y="87"  text-anchor="end"   fill="#C9D3E0">Cyclomatic</text>
-    <text x="80"  y="120" text-anchor="end"   fill="#C9D3E0">Cognitive</text>
-    <text x="80"  y="153" text-anchor="end"   fill="#C9D3E0">NPath</text>
-    <text x="250" y="87"  text-anchor="start" fill="#C9D3E0">ABC</text>
-    <text x="250" y="120" text-anchor="start" fill="#C9D3E0">Est. Bugs</text>
-    <text x="250" y="153" text-anchor="start" fill="#F5B031">Maintainability</text>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="600" dominant-baseline="central">
+    <text x="92"  y="87"  text-anchor="end"   fill="#C9D3E0">Cyclomatic</text>
+    <text x="92"  y="120" text-anchor="end"   fill="#C9D3E0">Cognitive</text>
+    <text x="92"  y="153" text-anchor="end"   fill="#C9D3E0">NPath</text>
+    <text x="262" y="87"  text-anchor="start" fill="#C9D3E0">ABC</text>
+    <text x="262" y="120" text-anchor="start" fill="#C9D3E0">Est. Bugs</text>
+    <text x="262" y="153" text-anchor="start" fill="#F5B031">Maintainability</text>
   </g>
 
   <!-- wordmark -->
