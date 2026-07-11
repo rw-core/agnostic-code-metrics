@@ -2,10 +2,7 @@
 
 # agnostic-code-metrics
 
-[![CI](https://github.com/rw-core/agnostic-code-metrics/actions/workflows/ci.yml/badge.svg)](https://github.com/rw-core/agnostic-code-metrics/actions/workflows/ci.yml)
-[![Latest release](https://img.shields.io/github/v/release/rw-core/agnostic-code-metrics)](https://github.com/rw-core/agnostic-code-metrics/releases/latest)
-[![GitHub Marketplace](https://img.shields.io/badge/marketplace-agnostic--code--metrics-blue?logo=github)](https://github.com/marketplace/actions/agnostic-code-metrics)
-[![License](https://img.shields.io/github/license/rw-core/agnostic-code-metrics)](LICENSE)
+[![CI](https://github.com/rw-core/agnostic-code-metrics/actions/workflows/ci.yml/badge.svg)](https://github.com/rw-core/agnostic-code-metrics/actions/workflows/ci.yml) [![Latest release](https://img.shields.io/github/v/release/rw-core/agnostic-code-metrics)](https://github.com/rw-core/agnostic-code-metrics/releases/latest) [![GitHub Marketplace](https://img.shields.io/badge/marketplace-agnostic--code--metrics-blue?logo=github)](https://github.com/marketplace/actions/agnostic-code-metrics) [![License](https://img.shields.io/github/license/rw-core/agnostic-code-metrics)](LICENSE)
 
 _Six legs, six metrics: a language-agnostic code-quality check for every pull request._
 
