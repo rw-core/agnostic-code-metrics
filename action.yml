@@ -1,0 +1,123 @@
+name: Agnostic Code Metrics
+description: >-
+  Compute language-agnostic code-quality metrics (Cyclomatic, Cognitive, NPath,
+  ABC, Halstead bugs, Maintainability Index) for the files changed in a pull
+  request, with base-vs-head deltas and an optional quality gate.
+author: rw-core
+branding:
+  icon: activity
+  color: purple
+
+inputs:
+  github-token:
+    description: Token used to post the sticky PR comment (needs pull-requests:write).
+    required: false
+    default: ${{ github.token }}
+  include:
+    description: >-
+      Newline- or comma-separated glob(s) of files to include. Empty means all
+      recognised source files.
+    required: false
+    default: ''
+  exclude:
+    description: Newline- or comma-separated glob(s) of files to exclude.
+    required: false
+    default: |
+      **/*.g.dart
+      **/*.freezed.dart
+      **/test/**
+      **/tests/**
+      **/*.min.js
+  max-cyclomatic:
+    description: Fail/flag files whose cyclomatic complexity exceeds this value.
+    required: false
+    default: ''
+  max-cognitive:
+    description: Fail/flag files whose cognitive complexity exceeds this value.
+    required: false
+    default: ''
+  max-npath:
+    description: Fail/flag files whose NPath complexity exceeds this value.
+    required: false
+    default: ''
+  max-abc:
+    description: Fail/flag files whose ABC score exceeds this value.
+    required: false
+    default: ''
+  max-halstead-bugs:
+    description: Fail/flag files whose Halstead delivered-bugs estimate exceeds this.
+    required: false
+    default: ''
+  min-maintainability:
+    description: Fail/flag files whose Maintainability Index falls below this value.
+    required: false
+    default: ''
+  fail-on-violation:
+    description: When true, exit non-zero if any threshold is violated.
+    required: false
+    default: 'false'
+  comment:
+    description: When true, post/update a sticky metrics comment on the PR.
+    required: false
+    default: 'true'
+  working-directory:
+    description: Path (relative to the checkout) of the repository root to analyse.
+    required: false
+    default: '.'
+
+outputs:
+  violation-count:
+    description: Number of metric threshold violations found.
+    value: ${{ steps.metrics.outputs.violation-count }}
+  worst-file:
+    description: Path of the file with the highest cyclomatic complexity.
+    value: ${{ steps.metrics.outputs.worst-file }}
+
+runs:
+  using: composite
+  steps:
+    # Fast path: download the pre-compiled native binary for this runner from
+    # the action's GitHub Release and execute it (no SDK, ~instant startup).
+    - name: Run metrics (native binary)
+      id: metrics
+      shell: bash
+      run: bash "$GITHUB_ACTION_PATH/scripts/run.sh"
+      env:
+        ACTION_REPO: ${{ github.action_repository }}
+        ACTION_REF: ${{ github.action_ref }}
+        INPUT_GITHUB_TOKEN: ${{ inputs.github-token }}
+        INPUT_INCLUDE: ${{ inputs.include }}
+        INPUT_EXCLUDE: ${{ inputs.exclude }}
+        INPUT_MAX_CYCLOMATIC: ${{ inputs.max-cyclomatic }}
+        INPUT_MAX_COGNITIVE: ${{ inputs.max-cognitive }}
+        INPUT_MAX_NPATH: ${{ inputs.max-npath }}
+        INPUT_MAX_ABC: ${{ inputs.max-abc }}
+        INPUT_MAX_HALSTEAD_BUGS: ${{ inputs.max-halstead-bugs }}
+        INPUT_MIN_MAINTAINABILITY: ${{ inputs.min-maintainability }}
+        INPUT_FAIL_ON_VIOLATION: ${{ inputs.fail-on-violation }}
+        INPUT_COMMENT: ${{ inputs.comment }}
+        INPUT_WORKING_DIRECTORY: ${{ inputs.working-directory }}
+
+    # Fallback: only runs if the binary could not be fetched/verified
+    # (unpublished arch, network/checksum failure, or a pinned commit SHA).
+    - name: Set up Dart (fallback)
+      if: steps.metrics.outputs.mode == 'fallback'
+      uses: dart-lang/setup-dart@v1.7.1
+    - name: Run metrics (from source, fallback)
+      if: steps.metrics.outputs.mode == 'fallback'
+      shell: bash
+      working-directory: ${{ github.action_path }}
+      run: dart pub get && dart run bin/main.dart
+      env:
+        INPUT_GITHUB_TOKEN: ${{ inputs.github-token }}
+        INPUT_INCLUDE: ${{ inputs.include }}
+        INPUT_EXCLUDE: ${{ inputs.exclude }}
+        INPUT_MAX_CYCLOMATIC: ${{ inputs.max-cyclomatic }}
+        INPUT_MAX_COGNITIVE: ${{ inputs.max-cognitive }}
+        INPUT_MAX_NPATH: ${{ inputs.max-npath }}
+        INPUT_MAX_ABC: ${{ inputs.max-abc }}
+        INPUT_MAX_HALSTEAD_BUGS: ${{ inputs.max-halstead-bugs }}
+        INPUT_MIN_MAINTAINABILITY: ${{ inputs.min-maintainability }}
+        INPUT_FAIL_ON_VIOLATION: ${{ inputs.fail-on-violation }}
+        INPUT_COMMENT: ${{ inputs.comment }}
+        INPUT_WORKING_DIRECTORY: ${{ inputs.working-directory }}

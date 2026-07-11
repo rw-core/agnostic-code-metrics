@@ -1,0 +1,17 @@
+name: agnostic_code_metrics
+description: >-
+  GitHub Action that computes language-agnostic code-quality metrics for the
+  files changed in a pull request, using the rw_git lexical metrics engine.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.3.0
+
+dependencies:
+  rw_git: ^3.3.0
+  http: ^1.2.0
+
+dev_dependencies:
+  lints: ^4.0.0
+  test: ^1.25.0

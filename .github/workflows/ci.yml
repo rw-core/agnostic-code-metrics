@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dart-lang/setup-dart@v1.7.1
+      - run: dart pub get
+      - run: dart analyze --fatal-infos
+      - run: dart test
+
+  dogfood:
+    # Run the action against this repo's own PR to prove the composite wiring
+    # and the sticky-comment path end to end.
+    needs: test
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: ./
+        with:
+          max-cyclomatic: 25
+          min-maintainability: 40
+          fail-on-violation: false
