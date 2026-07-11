@@ -6,12 +6,12 @@
 # action's GitHub Release, verifies its SHA-256 checksum, and executes it.
 # On ANY infrastructure failure (unsupported arch, download error, checksum
 # mismatch) it signals `mode=fallback` so action.yml can compile from source
-# via setup-dart instead. A non-zero exit from the binary ITSELF (e.g. a
+# via Flutter instead. A non-zero exit from the binary ITSELF (e.g. a
 # quality-gate violation) is propagated, not treated as a fallback.
 set -uo pipefail
 
 fallback() {
-  echo "agnostic-code-metrics: $1 — falling back to setup-dart." >&2
+  echo "agnostic-code-metrics: $1 — falling back to a source build." >&2
   echo "mode=fallback" >>"${GITHUB_OUTPUT:-/dev/null}"
   exit 0
 }

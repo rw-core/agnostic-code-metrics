@@ -23,9 +23,13 @@ jobs:
           - { runner: windows-latest,   os: windows, arch: x64,   ext: '.exe' }
     steps:
       - uses: actions/checkout@v4
-      - uses: dart-lang/setup-dart@v1.7.1
+      # rw_git pins `flutter` in its environment, so we set up Flutter (which
+      # bundles the Dart SDK used by `dart compile exe`).
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
       - shell: bash
-        run: dart pub get
+        run: flutter pub get
       - name: Compile native binary + checksum
         shell: bash
         run: |

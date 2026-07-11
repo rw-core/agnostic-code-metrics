@@ -103,7 +103,8 @@ source language are analysed; unparseable/binary files are skipped silently.
 This is a **composite action optimized with pre-compiled native binaries**, so
 there is no Dart SDK setup or on-the-fly compilation on the consumer's runner:
 
-1. On each release, CI AOT-compiles standalone binaries via `dart compile exe`
+1. On each release, CI sets up Flutter (which bundles Dart) and AOT-compiles
+   standalone binaries via `dart compile exe`
    for Linux (x64/arm64), macOS (x64/arm64), and Windows (x64), and attaches
    them — with `.sha256` checksums — to the GitHub Release.
 2. At runtime the action detects `RUNNER_OS`/`RUNNER_ARCH`, downloads the
@@ -111,7 +112,7 @@ there is no Dart SDK setup or on-the-fly compilation on the consumer's runner:
    (~instant startup — no `setup-dart`, no `pub get`, no compile).
 3. If the binary can't be fetched or verified (an unpublished arch, a network or
    checksum failure, or a commit-SHA pin / vendored `uses: ./` copy), it
-   **automatically falls back** to compiling from source via `setup-dart` so the
+   **automatically falls back** to compiling from source via Flutter so the
    action always works.
 
 A quality-gate failure (`fail-on-violation`) is a real exit code, not a fallback
@@ -119,8 +120,12 @@ trigger — it fails the check as intended.
 
 ## Development
 
+`rw_git` pins the Flutter SDK in its `environment` constraint (its code is pure
+Dart, but pub requires Flutter to resolve), so use the **Flutter** toolchain —
+which bundles Dart — rather than a standalone Dart SDK:
+
 ```bash
-dart pub get
+flutter pub get
 dart analyze
 dart test
 dart compile exe bin/main.dart -o /tmp/acm   # what the release build produces
