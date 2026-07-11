@@ -30,6 +30,16 @@ case "${RUNNER_ARCH:-}" in
   *) fallback "unsupported RUNNER_ARCH='${RUNNER_ARCH:-}'" ;;
 esac
 
+# Flutter's stable channel ships no linux-arm64 SDK, so neither the pre-built
+# binary nor the source fallback can run here. Fail fast with clear guidance
+# instead of attempting a doomed Flutter setup.
+if [ "$os" = linux ] && [ "$arch" = arm64 ]; then
+  echo "agnostic-code-metrics: linux-arm64 is not supported (rw_git requires" \
+       "the Flutter SDK, which has no linux-arm64 build). Run on a linux-x64" \
+       "runner instead." >&2
+  exit 1
+fi
+
 asset="agnostic-code-metrics-${os}-${arch}${ext}"
 repo="${ACTION_REPO:-}"
 ref="${ACTION_REF:-}"

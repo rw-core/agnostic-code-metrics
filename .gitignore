@@ -27,3 +27,8 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+.idea/vcs.xml
+.idea/modules.xml
+.idea/misc.xml
+.idea/caches/deviceStreaming.xml
+.idea/agnostic-code-metrics.iml
