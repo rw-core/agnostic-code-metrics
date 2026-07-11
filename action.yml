@@ -1,8 +1,7 @@
 name: Agnostic Code Metrics
 description: >-
-  Compute language-agnostic code-quality metrics (Cyclomatic, Cognitive, NPath,
-  ABC, Halstead bugs, Maintainability Index) for the files changed in a pull
-  request, with base-vs-head deltas and an optional quality gate.
+  Language-agnostic code-quality metrics for PR-changed files, with base-vs-head
+  deltas and an optional quality gate.
 author: rw-core
 branding:
   icon: activity
