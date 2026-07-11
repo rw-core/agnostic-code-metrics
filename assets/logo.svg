@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" width="400" height="240" role="img" aria-label="agnostic-code-metrics: a honeycomb whose six cells are the metrics Cyclomatic, Cognitive, NPath, ABC, Est. Bugs and Maintainability around a central composite score">
   <defs>
-    <linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B222D"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
-    <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#AEB9CD"/><stop offset="1" stop-color="#7E8DA8"/></linearGradient>
-    <linearGradient id="a" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#F5B031"/><stop offset="1" stop-color="#FFC94D"/></linearGradient>
-    <linearGradient id="c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5A6884"/><stop offset="1" stop-color="#3C475C"/></linearGradient>
+    <linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26334A"/><stop offset="1" stop-color="#1B2430"/></linearGradient>
+    <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C3CFDF"/><stop offset="1" stop-color="#8FA1BC"/></linearGradient>
+    <linearGradient id="a" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#D6408F"/><stop offset="1" stop-color="#F272B6"/></linearGradient>
+    <linearGradient id="c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A5C7A"/><stop offset="1" stop-color="#2E3D52"/></linearGradient>
   </defs>
   <rect x="8" y="8" width="384" height="224" rx="28" fill="url(#t)"/>
-  <rect x="8.75" y="8.75" width="382.5" height="222.5" rx="27.25" fill="none" stroke="#2B3644" stroke-width="1.5"/>
+  <rect x="8.75" y="8.75" width="382.5" height="222.5" rx="27.25" fill="none" stroke="#2E3D52" stroke-width="1.5"/>
 
   <!-- leader lines from each metric cell to its label -->
-  <g stroke="#3A4657" stroke-width="1.5" stroke-linecap="round">
+  <g stroke="#3E4E68" stroke-width="1.5" stroke-linecap="round">
     <line x1="161.95" y1="87"  x2="136" y2="87"/>
     <line x1="142.85" y1="120" x2="136" y2="120"/>
     <line x1="161.95" y1="153" x2="136" y2="153"/>
@@ -19,7 +19,7 @@
   </g>
 
   <!-- honeycomb: one composite centre + six metric cells (walls = dark) -->
-  <g stroke="#0D1117" stroke-width="2.5" stroke-linejoin="round">
+  <g stroke="#1B2430" stroke-width="2.5" stroke-linejoin="round">
     <!-- Cyclomatic (upper-left) -->
     <path d="M181 65 L161.95 76 L161.95 98 L181 109 L200.05 98 L200.05 76 Z" fill="url(#c)"/>
     <!-- Cognitive (left) -->
@@ -30,7 +30,7 @@
     <path d="M219 65 L199.95 76 L199.95 98 L219 109 L238.05 98 L238.05 76 Z" fill="url(#c)"/>
     <!-- Est. Bugs (right) -->
     <path d="M238.1 98 L219.05 109 L219.05 131 L238.1 142 L257.15 131 L257.15 109 Z" fill="url(#c)"/>
-    <!-- Maintainability (lower-right) = the amber gated metric -->
+    <!-- Maintainability (lower-right) = the pink gated metric -->
     <path d="M219 131 L199.95 142 L199.95 164 L219 175 L238.05 164 L238.05 142 Z" fill="url(#a)"/>
     <!-- composite score (centre) -->
     <path d="M200 98 L180.95 109 L180.95 131 L200 142 L219.05 131 L219.05 109 Z" fill="url(#b)"/>
@@ -38,25 +38,25 @@
 
   <!-- cell nodes -->
   <g stroke="none">
-    <circle cx="181"   cy="87"  r="2.6" fill="#AEB9CD"/>
-    <circle cx="161.9" cy="120" r="2.6" fill="#AEB9CD"/>
-    <circle cx="181"   cy="153" r="2.6" fill="#AEB9CD"/>
-    <circle cx="219"   cy="87"  r="2.6" fill="#AEB9CD"/>
-    <circle cx="238.1" cy="120" r="2.6" fill="#AEB9CD"/>
-    <circle cx="219"   cy="153" r="2.6" fill="#0D1117"/>
+    <circle cx="181"   cy="87"  r="2.6" fill="#C3CFDF"/>
+    <circle cx="161.9" cy="120" r="2.6" fill="#C3CFDF"/>
+    <circle cx="181"   cy="153" r="2.6" fill="#C3CFDF"/>
+    <circle cx="219"   cy="87"  r="2.6" fill="#C3CFDF"/>
+    <circle cx="238.1" cy="120" r="2.6" fill="#C3CFDF"/>
+    <circle cx="219"   cy="153" r="2.6" fill="#1B2430"/>
     <circle cx="200"   cy="120" r="3.4" fill="url(#a)"/>
   </g>
 
   <!-- metric labels, one per cell -->
   <g font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="600" dominant-baseline="central">
-    <text x="134" y="87"  text-anchor="end"   fill="#C9D3E0">Cyclomatic</text>
-    <text x="134" y="120" text-anchor="end"   fill="#C9D3E0">Cognitive</text>
-    <text x="134" y="153" text-anchor="end"   fill="#C9D3E0">NPath</text>
-    <text x="266" y="87"  text-anchor="start" fill="#C9D3E0">ABC</text>
-    <text x="266" y="120" text-anchor="start" fill="#C9D3E0">Est. Bugs</text>
-    <text x="266" y="153" text-anchor="start" fill="#F5B031">Maintainability</text>
+    <text x="134" y="87"  text-anchor="end"   fill="#C3CFDF">Cyclomatic</text>
+    <text x="134" y="120" text-anchor="end"   fill="#C3CFDF">Cognitive</text>
+    <text x="134" y="153" text-anchor="end"   fill="#C3CFDF">NPath</text>
+    <text x="266" y="87"  text-anchor="start" fill="#C3CFDF">ABC</text>
+    <text x="266" y="120" text-anchor="start" fill="#C3CFDF">Est. Bugs</text>
+    <text x="266" y="153" text-anchor="start" fill="#F272B6">Maintainability</text>
   </g>
 
   <!-- wordmark -->
-  <text x="200" y="216" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#7E8DA8" letter-spacing="0.5">agnostic-code-metrics</text>
+  <text x="200" y="216" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13" font-weight="600" fill="#8FA1BC" letter-spacing="0.5">agnostic-code-metrics</text>
 </svg>

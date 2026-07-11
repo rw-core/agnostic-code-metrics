@@ -1,20 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="agnostic-code-metrics compact mark: a six-cell honeycomb around a composite score">
   <defs>
-    <linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1B222D"/><stop offset="1" stop-color="#0D1117"/></linearGradient>
-    <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#AEB9CD"/><stop offset="1" stop-color="#7E8DA8"/></linearGradient>
-    <linearGradient id="a" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#F5B031"/><stop offset="1" stop-color="#FFC94D"/></linearGradient>
-    <linearGradient id="c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5A6884"/><stop offset="1" stop-color="#3C475C"/></linearGradient>
+    <linearGradient id="t" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#26334A"/><stop offset="1" stop-color="#1B2430"/></linearGradient>
+    <linearGradient id="b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C3CFDF"/><stop offset="1" stop-color="#8FA1BC"/></linearGradient>
+    <linearGradient id="a" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#D6408F"/><stop offset="1" stop-color="#F272B6"/></linearGradient>
+    <linearGradient id="c" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A5C7A"/><stop offset="1" stop-color="#2E3D52"/></linearGradient>
   </defs>
   <rect x="8" y="8" width="112" height="112" rx="28" fill="url(#t)"/>
-  <rect x="8.75" y="8.75" width="110.5" height="110.5" rx="27.25" fill="none" stroke="#2B3644" stroke-width="1.5"/>
+  <rect x="8.75" y="8.75" width="110.5" height="110.5" rx="27.25" fill="none" stroke="#2E3D52" stroke-width="1.5"/>
 
-  <g stroke="#0D1117" stroke-width="2.5" stroke-linejoin="round">
+  <g stroke="#1B2430" stroke-width="2.5" stroke-linejoin="round">
     <path d="M81.32 14 L64 24 L64 44 L81.32 54 L98.64 44 L98.64 24 Z" fill="url(#c)"/>
     <path d="M46.68 14 L29.36 24 L29.36 44 L46.68 54 L64 44 L64 24 Z" fill="url(#c)"/>
     <path d="M29.36 44 L12.04 54 L12.04 74 L29.36 84 L46.68 74 L46.68 54 Z" fill="url(#c)"/>
     <path d="M98.64 44 L81.32 54 L81.32 74 L98.64 84 L115.96 74 L115.96 54 Z" fill="url(#c)"/>
     <path d="M46.68 74 L29.36 84 L29.36 104 L46.68 114 L64 104 L64 84 Z" fill="url(#c)"/>
-    <!-- amber gated cell -->
+    <!-- pink gated cell -->
     <path d="M81.32 74 L64 84 L64 104 L81.32 114 L98.64 104 L98.64 84 Z" fill="url(#a)"/>
     <!-- composite centre -->
     <path d="M64 44 L46.68 54 L46.68 74 L64 84 L81.32 74 L81.32 54 Z" fill="url(#b)"/>
