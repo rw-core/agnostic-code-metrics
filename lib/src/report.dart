@@ -26,7 +26,7 @@ String buildReport(
   final flagged = <String>{for (final v in violations) '${v.path}|${v.metric.key}'};
 
   final gate = violations.isEmpty
-      ? '✅ **${reports.length}** file(s) analysed — no threshold violations'
+      ? '✅ **${reports.length}** file(s) analysed, no threshold violations'
       : '❌ **${violations.length}** violation(s) across '
           '**${reports.length}** file(s)';
   sb

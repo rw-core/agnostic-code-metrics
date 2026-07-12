@@ -11,7 +11,7 @@
 set -uo pipefail
 
 fallback() {
-  echo "agnostic-code-metrics: $1 — falling back to a source build." >&2
+  echo "agnostic-code-metrics: $1, falling back to a source build." >&2
   echo "mode=fallback" >>"${GITHUB_OUTPUT:-/dev/null}"
   exit 0
 }
