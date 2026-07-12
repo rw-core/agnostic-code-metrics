@@ -103,7 +103,7 @@ source language are analysed (unparseable/binary files are skipped silently).
 >
 > | File | Cyclomatic | Cognitive | NPath | ABC | Est. Bugs | Maintainability |
 > |------|:--:|:--:|:--:|:--:|:--:|:--:|
-> | `lib/sample.dart` | 12 🔺+11 ❌ | 30 🔺+30 | 512 🔺+511 | 14.35 🔺+14.35 | 0.18 🔺+0.16 | 52.41 🔺−24.73 |
+> | `lib/sample.dart` | 12 🔴▲+11 ❌ | 30 🔴▲+30 | 512 🔴▲+511 | 14.35 🔴▲+14.35 | 0.18 🔴▲+0.16 | 52.41 🔴▼−24.73 |
 > | `lib/added.dart` 🆕 | 1 | 0 | 1 | 0 | 0.01 | 89.52 |
 
 ## How it runs (performance)

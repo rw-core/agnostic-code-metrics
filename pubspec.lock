@@ -221,10 +221,10 @@ packages:
     dependency: "direct main"
     description:
       name: rw_git
-      sha256: "413d88e9504c5315f890d0b440ced741630214d24783e1ff6bcc04fb069cf124"
+      sha256: f589d0e17b49bfe4e7486df6077ccc9414c8aa3a7279c5d49f08ef414118ef1e
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.1"
+    version: "3.3.2"
   shelf:
     dependency: transitive
     description:

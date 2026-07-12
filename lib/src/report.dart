@@ -48,7 +48,8 @@ String buildReport(
 
   sb
     ..writeln()
-    ..writeln('<sub>Δ vs base · 🔺 worse · 🔻 better · Maintainability 0–100 '
+    ..writeln('<sub>Δ vs base · ▲/▼ value went up/down · 🟢 better · '
+        '🔴 worse · Maintainability 0–100 '
         '(higher is better) · powered by '
         '[`rw_git`](https://pub.dev/packages/rw_git)</sub>');
   return sb.toString();
@@ -78,7 +79,8 @@ String _num(double v) {
 String _delta(double? d, bool higherIsWorse) {
   if (d == null || d.abs() < 0.005) return '';
   final worse = higherIsWorse ? d > 0 : d < 0;
-  final arrow = worse ? '🔺' : '🔻';
+  final color = worse ? '🔴' : '🟢';
+  final arrow = d > 0 ? '▲' : '▼';
   final sign = d > 0 ? '+' : '−';
-  return ' $arrow$sign${_num(d.abs())}';
+  return ' $color$arrow$sign${_num(d.abs())}';
 }

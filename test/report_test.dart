@@ -35,7 +35,7 @@ void main() {
     final md = buildReport(reports, violations, {'cyclomatic': 10});
 
     expect(md, contains('`lib/a.dart`'));
-    expect(md, contains('🔺')); // cyclomatic went up → worse
+    expect(md, contains('🔴▲')); // cyclomatic went up → worse
     expect(md, contains('❌')); // exceeds threshold
     expect(md, contains('**1** violation'));
   });
@@ -51,7 +51,7 @@ void main() {
       ),
     ];
     final md = buildReport(reports, [], {});
-    expect(md, contains('🔻')); // MI up by 10 → better
+    expect(md, contains('🟢▲+10')); // MI up by 10 → up arrow, green
     expect(md, contains('🆕')); // added-file tag
   });
 }
