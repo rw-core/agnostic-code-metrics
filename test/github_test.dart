@@ -14,8 +14,8 @@ void main() {
       if (req.method == 'GET') return http.Response('[]', 200);
       return http.Response('{"id":1}', 201);
     });
-    final gh =
-        GitHub(token: 't', repository: 'o/r', client: client, apiUrl: 'https://x');
+    final gh = GitHub(
+        token: 't', repository: 'o/r', client: client, apiUrl: 'https://x');
 
     await gh.upsertStickyComment(7, '$marker body');
 
@@ -34,8 +34,8 @@ void main() {
       if (req.method == 'GET') return http.Response(existing, 200);
       return http.Response('{"id":200}', 200);
     });
-    final gh =
-        GitHub(token: 't', repository: 'o/r', client: client, apiUrl: 'https://x');
+    final gh = GitHub(
+        token: 't', repository: 'o/r', client: client, apiUrl: 'https://x');
 
     await gh.upsertStickyComment(7, '$marker new run');
 

@@ -17,8 +17,7 @@ void main() {
 
   group('matches', () {
     test('empty include allows everything not excluded', () {
-      expect(
-          GitRepo.matches('lib/a.dart', include: [], exclude: []), isTrue);
+      expect(GitRepo.matches('lib/a.dart', include: [], exclude: []), isTrue);
     });
     test('exclude glob with ** spans directories', () {
       expect(
@@ -29,8 +28,8 @@ void main() {
     test('single star does not cross a slash', () {
       expect(GitRepo.matches('a/b.dart', include: ['*.dart'], exclude: []),
           isFalse);
-      expect(GitRepo.matches('b.dart', include: ['*.dart'], exclude: []),
-          isTrue);
+      expect(
+          GitRepo.matches('b.dart', include: ['*.dart'], exclude: []), isTrue);
     });
     test('include must match to keep the file', () {
       expect(GitRepo.matches('src/a.py', include: ['lib/**'], exclude: []),

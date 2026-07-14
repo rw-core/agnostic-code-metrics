@@ -28,9 +28,8 @@ List<FileReport> analyze(List<ChangedFile> files) {
   for (final f in files) {
     try {
       final head = Metrics.compute(f.path, f.headSource);
-      final base = f.baseSource == null
-          ? null
-          : Metrics.compute(f.path, f.baseSource!);
+      final base =
+          f.baseSource == null ? null : Metrics.compute(f.path, f.baseSource!);
       reports.add(FileReport(
         path: f.path,
         status: f.status,

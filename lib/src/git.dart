@@ -104,9 +104,37 @@ class GitRepo {
 
   /// File extensions the lexical engine can meaningfully analyse.
   static const sourceExtensions = <String>{
-    'dart', 'js', 'jsx', 'ts', 'tsx', 'py', 'java', 'kt', 'kts', 'go', 'rs',
-    'rb', 'php', 'c', 'h', 'cc', 'cpp', 'cxx', 'hpp', 'cs', 'swift', 'scala',
-    'm', 'mm', 'sh', 'bash', 'lua', 'groovy', 'sql', 'vue', 'svelte',
+    'dart',
+    'js',
+    'jsx',
+    'ts',
+    'tsx',
+    'py',
+    'java',
+    'kt',
+    'kts',
+    'go',
+    'rs',
+    'rb',
+    'php',
+    'c',
+    'h',
+    'cc',
+    'cpp',
+    'cxx',
+    'hpp',
+    'cs',
+    'swift',
+    'scala',
+    'm',
+    'mm',
+    'sh',
+    'bash',
+    'lua',
+    'groovy',
+    'sql',
+    'vue',
+    'svelte',
   };
 
   static bool isSourceFile(String path) {
@@ -128,7 +156,8 @@ class GitRepo {
   static final _cache = <String, RegExp>{};
 
   static bool _globMatch(String glob, String path) {
-    final re = _cache.putIfAbsent(glob, () => RegExp('^${_globToRegex(glob)}\$'));
+    final re =
+        _cache.putIfAbsent(glob, () => RegExp('^${_globToRegex(glob)}\$'));
     return re.hasMatch(path);
   }
 

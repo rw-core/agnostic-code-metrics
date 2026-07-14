@@ -31,10 +31,7 @@ class MetricKind {
         read: _cyclo,
         higherIsWorse: true),
     MetricKind(
-        key: 'cognitive',
-        label: 'Cognitive',
-        read: _cogn,
-        higherIsWorse: true),
+        key: 'cognitive', label: 'Cognitive', read: _cogn, higherIsWorse: true),
     MetricKind(key: 'npath', label: 'NPath', read: _npath, higherIsWorse: true),
     MetricKind(key: 'abc', label: 'ABC', read: _abc, higherIsWorse: true),
     MetricKind(

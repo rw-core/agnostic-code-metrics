@@ -23,7 +23,9 @@ String buildReport(
   }
 
   // Which (path, metricKey) pairs are in violation, for cell badges.
-  final flagged = <String>{for (final v in violations) '${v.path}|${v.metric.key}'};
+  final flagged = <String>{
+    for (final v in violations) '${v.path}|${v.metric.key}'
+  };
 
   final gate = violations.isEmpty
       ? '✅ **${reports.length}** file(s) analysed, no threshold violations'
@@ -56,8 +58,9 @@ String buildReport(
 }
 
 int Function(FileReport, FileReport) _worstFirst(Set<String> flagged) {
-  int score(FileReport r) =>
-      MetricKind.all.where((m) => flagged.contains('${r.path}|${m.key}')).length;
+  int score(FileReport r) => MetricKind.all
+      .where((m) => flagged.contains('${r.path}|${m.key}'))
+      .length;
   return (a, b) {
     final byViolations = score(b).compareTo(score(a));
     if (byViolations != 0) return byViolations;
