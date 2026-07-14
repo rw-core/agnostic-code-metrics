@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" alt="agnostic-code-metrics" width="128">
+  <img src="assets/logo-mark.svg" alt="agnostic-code-metrics" width="128">
 </p>
 
 <h1 align="center">agnostic-code-metrics</h1>
