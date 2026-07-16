@@ -1,10 +1,15 @@
-<p align="center">
-  <img src="assets/logo.png" alt="agnostic-code-metrics" width="128">
-</p>
+<div align="center">
+  <img src="assets/logo.png" alt="Agnostic Code Metrics Logo" width="128" />
 
-<h1 align="center">agnostic-code-metrics</h1>
+  <h1>Agnostic Code Metrics</h1>
 
-<p align="center"><a href="https://github.com/rw-core/agnostic-code-metrics/actions/workflows/ci.yml"><img src="https://github.com/rw-core/agnostic-code-metrics/actions/workflows/ci.yml/badge.svg" alt="CI"></a> <a href="https://github.com/rw-core/agnostic-code-metrics/releases/latest"><img src="https://img.shields.io/github/v/release/rw-core/agnostic-code-metrics" alt="Latest release"></a> <a href="https://github.com/marketplace/actions/agnostic-code-metrics"><img src="https://img.shields.io/badge/marketplace-agnostic--code--metrics-blue?logo=github" alt="GitHub Marketplace"></a> <a href="LICENSE"><img src="https://img.shields.io/github/license/rw-core/agnostic-code-metrics" alt="License"></a></p>
+  <p>
+    <a href="https://github.com/rw-core/agnostic-code-metrics/actions/workflows/ci.yml"><img src="https://github.com/rw-core/agnostic-code-metrics/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+    <a href="https://github.com/rw-core/agnostic-code-metrics/releases/latest"><img src="https://img.shields.io/github/v/release/rw-core/agnostic-code-metrics" alt="Latest release"></a>
+    <a href="https://github.com/marketplace/actions/agnostic-code-metrics"><img src="https://img.shields.io/badge/marketplace-agnostic--code--metrics-blue?logo=github" alt="GitHub Marketplace"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/github/license/rw-core/agnostic-code-metrics" alt="License"></a>
+  </p>
+</div>
 
 A GitHub Action that computes **language-agnostic code-quality metrics** for the
 files changed in a pull request and reports them as a sticky PR comment and a job
@@ -43,6 +48,25 @@ jobs:
         with:
           fetch-depth: 0       # required: deltas need base+head history
       - uses: rw-core/agnostic-code-metrics@v1
+        with:
+          # Optional configurable parameters
+          # github-token: ${{ github.token }}
+          # include: ''
+          # exclude: |
+          #   **/*.g.dart
+          #   **/*.freezed.dart
+          #   **/test/**
+          #   **/tests/**
+          #   **/*.min.js
+          # max-cyclomatic: ''
+          # max-cognitive: ''
+          # max-npath: ''
+          # max-abc: ''
+          # max-halstead-bugs: ''
+          # min-maintainability: ''
+          # fail-on-violation: 'false'
+          # comment: 'true'
+          # working-directory: '.'
 ```
 
 Pin to a full version (e.g. `@v1.2.3`) for immutability; the rolling `@v1` tag
