@@ -29,7 +29,7 @@ more:
 | Halstead Est. Bugs | Predicted defect count (Halstead, 1977) | lower is better |
 | Maintainability Index | Composite 0–100 (Oman & Hagemeister, 1992) | **higher** is better |
 
-## Usage
+## Sample Usage
 
 ```yaml
 name: Code Metrics
@@ -77,7 +77,7 @@ always points at the latest `v1.x`.
 > (to post/update the comment). Without the token permission, drop the comment
 > with `comment: false` and rely on the job summary.
 
-### Quality gate
+**Quality gate**
 
 Fail the check when a changed file crosses a threshold:
 
@@ -117,7 +117,7 @@ source language are analysed (unparseable/binary files are skipped silently).
 | `violation-count` | Number of metric threshold violations. |
 | `worst-file` | Path of the file with the highest cyclomatic complexity. |
 
-## Example report
+## Example of how the end-result PR comment looks like
 
 > ## 📊 Code Metrics
 >
@@ -128,37 +128,3 @@ source language are analysed (unparseable/binary files are skipped silently).
 > | `lib/sample.dart` | 12 🔴▲+11 ❌ | 30 🔴▲+30 | 512 🔴▲+511 | 14.35 🔴▲+14.35 | 0.18 🔴▲+0.16 | 52.41 🔴▼−24.73 |
 > | `lib/added.dart` 🆕 | 1 | 0 | 1 | 0 | 0.01 | 89.52 |
 
-## How it runs (performance)
-
-This is a **composite action optimized with pre-compiled native binaries**, so
-there is no Dart SDK setup or on-the-fly compilation on the consumer's runner:
-
-1. On each release, CI sets up the Dart SDK and AOT-compiles standalone
-   binaries via `dart compile exe` for **Linux x64, Linux arm64, macOS x64,
-   macOS arm64, and Windows x64**, and attaches them (with `.sha256`
-   checksums) to the GitHub Release.
-2. At runtime the action detects `RUNNER_OS`/`RUNNER_ARCH`, downloads the
-   matching binary from the release, **verifies its checksum**, and executes it
-   (~instant startup, no `setup-dart`, no `pub get`, no compile).
-3. If the binary can't be fetched or verified (an unpublished arch, a network or
-   checksum failure, or a commit-SHA pin / vendored `uses: ./` copy), it
-   **automatically falls back** to compiling from source with the Dart SDK so
-   the action always works.
-
-A quality-gate failure (`fail-on-violation`) is a real exit code and it will fail
-the check as intended.
-
-## Development
-
-`rw_git` is a pure-Dart package, so a standalone Dart SDK is all you need:
-
-```bash
-dart pub get
-dart analyze
-dart test
-dart compile exe bin/main.dart -o /tmp/acm   # what the release build produces
-```
-
-Releases are cut by pushing a `vX.Y.Z` tag; `.github/workflows/release.yml`
-builds the platform matrix, publishes the versioned release, and rolls the `vX`
-tag.
