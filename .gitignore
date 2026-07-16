@@ -31,3 +31,4 @@ doc/api/
 .idea/caches/deviceStreaming.xml
 .idea/agnostic-code-metrics.iml
 .idea/markdown.xml
+.DS_Store
